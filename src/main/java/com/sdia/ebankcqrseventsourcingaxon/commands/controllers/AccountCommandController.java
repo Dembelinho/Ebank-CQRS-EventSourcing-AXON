@@ -34,7 +34,7 @@ public class AccountCommandController {
         ));
         return commandResponse;
     }
-    @PostMapping("/debit")
+    @PutMapping("/debit")
     public CompletableFuture<String> debitAccount(@RequestBody DebitAccountRequestDTO request){
         return commandGateway.send(new DebitAccountCommand(
                 request.getAccountId(),
@@ -42,7 +42,7 @@ public class AccountCommandController {
                 request.getCurrency()
         ));
     }
-    @PostMapping("/credit")
+    @PutMapping("/credit")
     public CompletableFuture<String> creditAccount(@RequestBody CreditAccountRequestDTO request){
         return commandGateway.send(new CreditAccountCommand(
                 request.getAccountId(),
